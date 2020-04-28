@@ -5,10 +5,8 @@
             <ProjectDisplay class="project" :reverse="get_boolean()" />
             <ProjectDisplay class="project" :reverse="get_boolean()" />
             <ProjectDisplay class="project" :reverse="get_boolean()" />
+            <ProjectDisplay class="project" :reverse="get_boolean()" />
         </div>
-
-        <p>test</p>
-        <p>test</p>
     </div>
 </template>
 
