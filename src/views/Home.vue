@@ -1,11 +1,28 @@
 <template>
-    <div>
+    <div id="home">
         <h1>Homepage</h1>
-        <div id="projects" ref="projects">
-            <ProjectDisplay class="project" :reverse="get_boolean()" />
-            <ProjectDisplay class="project" :reverse="get_boolean()" />
-            <ProjectDisplay class="project" :reverse="get_boolean()" />
-            <ProjectDisplay class="project" :reverse="get_boolean()" />
+        <div id="projects" ref="projects" :key="dir">
+            <ProjectDisplay
+                class="project"
+                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
+                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
+                :reverse="get_boolean()"
+                :direction="dir"
+            />
+            <ProjectDisplay
+                class="project"
+                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
+                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
+                :reverse="get_boolean()"
+                :direction="dir"
+            />
+            <ProjectDisplay
+                class="project"
+                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
+                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
+                :reverse="get_boolean()"
+                :direction="dir"
+            />
         </div>
     </div>
 </template>
@@ -15,19 +32,30 @@
 import NavBar from "@/components/NavBar.vue";
 import ProjectDisplay from "@/components/ProjectDisplay.vue";
 
-let bool = false;
+let bool = true;
 
 export default {
     name: "Home",
     components: { NavBar, ProjectDisplay },
-    mounted() {},
+
     data: function() {
         return {
             test: "true",
+            dir: "row",
             get_boolean() {
                 bool = !bool;
                 return String(bool);
             },
+        };
+    },
+    mounted() {
+        window.onload = () => {
+            this.dir = window.innerWidth > 900 ? "row" : "column";
+            console.log(this.dir);
+        };
+        window.onresize = () => {
+            this.dir = window.innerWidth > 900 ? "row" : "column";
+            console.log(this.dir);
         };
     },
 };
@@ -36,5 +64,23 @@ export default {
 <style scoped>
 body {
     color: black;
+}
+h1 {
+    text-align: center;
+}
+#projects {
+    text-align: center;
+}
+
+.project {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .project {
+        width: 90%;
+    }
 }
 </style>

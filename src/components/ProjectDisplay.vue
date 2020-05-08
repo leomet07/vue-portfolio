@@ -1,8 +1,9 @@
 <template>
     <div>
         <div id="container" ref="container">
-            <h3>First</h3>
-            <h3>Second</h3>
+            <h4 id="text">{{ description }}</h4>
+
+            <img :src="url" />
         </div>
     </div>
 </template>
@@ -10,19 +11,42 @@
 <script>
 export default {
     name: "NavBar",
-    props: ["reverse"],
+    props: ["reverse", "url", "description", "direction"],
     mounted() {
         // eslint-disable-next-line no-console
         console.log("The props are also available in JS:", this.reverse);
+        let dir = this.direction;
+        console.log("The props are also available in JS:", dir);
 
-        if (this.reverse == "true") {
-            console.log("Reverse the css order");
-            this.$refs.container.style["flex-flow"] = "row-reverse";
-            this.$refs.container.style["-webkit-flex-flow"] = "row-reverse";
-        } else if (this.reverse == "false") {
-            console.log("Make the css order normal left to right");
-            this.$refs.container.style["flex-flow"] = "row";
-            this.$refs.container.style["-webkit-flex-flow"] = "row";
+        if (dir == "row") {
+            if (this.reverse == "true") {
+                console.log("Reverse the css order");
+                this.$refs.container.className = "row-reverse horizantal";
+
+                /*
+                this.$refs.container.style["flex-flow"] = dir + "-reverse";
+                this.$refs.container.style["-webkit-flex-flow"] =
+                    dir + "-reverse";
+
+                */
+            } else if (this.reverse == "false") {
+                console.log("Make the css order normal left to right");
+
+                this.$refs.container.className = "row horizantal";
+
+                /*
+                this.$refs.container.style["flex-flow"] = dir;
+                this.$refs.container.style["-webkit-flex-flow"] = dir;
+
+                */
+            }
+        } else if (dir == "column") {
+            this.$refs.container.className = "column";
+
+            /*
+            this.$refs.container.style["flex-flow"] = dir;
+            this.$refs.container.style["-webkit-flex-flow"] = dir;
+            */
         }
     },
 };
@@ -37,15 +61,49 @@ export default {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    justify-content: space-between;
 
     /* Reverse Column Order */
 
-    max-width: 200px;
-
     border: 1px solid black;
 
-    padding-right: 1%;
-    padding-left: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+
+    margin-bottom: 5px;
+}
+h3 {
+}
+.horizantal {
+    width: 100%;
+    justify-content: space-around;
+}
+
+.horizantal img {
+    width: 400px;
+    height: 250px;
+}
+.horizantal #text {
+    width: 300px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.row {
+    flex-flow: row;
+    -webkit-flex-flow: row;
+}
+
+.row-reverse {
+    flex-flow: row-reverse;
+    -webkit-flex-flow: row-reverse;
+}
+
+.column {
+    width: 95%;
+    flex-flow: column;
+    -webkit-flex-flow: column;
+}
+
+.column img {
+    width: 100%;
 }
 </style>

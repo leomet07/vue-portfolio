@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar />
+        <NavBar id="nav" />
         <router-view id="main" />
     </div>
 </template>
@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -23,7 +24,9 @@ export default {
 
     /* to be away from nav */
 }
-
+#nav {
+    position: fixed;
+}
 :root {
     font-size: 16px;
     font-family: "Open Sans";
@@ -56,5 +59,17 @@ body::-webkit-scrollbar-thumb {
 #main {
     margin-left: 5rem;
     padding: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-left: 0rem;
+        margin-right: 0rem;
+        padding: 0rem;
+    }
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
 }
 </style>
