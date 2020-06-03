@@ -2,8 +2,9 @@
     <div>
         <div id="container" ref="container">
             <h4 id="text">{{ description }}</h4>
-
-            <img :src="url" />
+            <button @click="previmg">Previous img</button>
+            <img :src="url[index]" />
+            <button @click="nextimg">Next img</button>
         </div>
     </div>
 </template>
@@ -14,7 +15,7 @@ export default {
     props: ["reverse", "url", "description", "direction"],
     mounted() {
         // eslint-disable-next-line no-console
-        console.log("The props are also available in JS:", this.reverse);
+        console.log("The props are also available in JS:", this.url);
         let dir = this.direction;
         console.log("The props are also available in JS:", dir);
 
@@ -48,6 +49,30 @@ export default {
             this.$refs.container.style["-webkit-flex-flow"] = dir;
             */
         }
+
+        this.curr_url = this.url[this.index];
+    },
+    data: function() {
+        return {
+            curr_url: "",
+            index: 0,
+        };
+    },
+    methods: {
+        nextimg: function() {
+            console.log("Next Image");
+            this.index += 1;
+            if (this.index >= this.url.length) {
+                this.index = 0;
+            }
+        },
+        previmg: function() {
+            console.log("Previous Image");
+            this.index -= 1;
+            if (this.index < 0) {
+                this.index = this.url.length - 1;
+            }
+        },
     },
 };
 </script>
@@ -76,6 +101,7 @@ h3 {
 .horizantal {
     width: 100%;
     justify-content: space-around;
+    align-elements: center;
 }
 
 .horizantal img {
@@ -105,5 +131,11 @@ h3 {
 
 .column img {
     width: 100%;
+}
+
+button {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 20px;
 }
 </style>

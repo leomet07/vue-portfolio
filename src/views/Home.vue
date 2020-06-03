@@ -4,22 +4,17 @@
         <div id="projects" ref="projects" :key="dir">
             <ProjectDisplay
                 class="project"
-                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
-                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
-                :reverse="get_boolean()"
-                :direction="dir"
-            />
-            <ProjectDisplay
-                class="project"
-                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
-                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
-                :reverse="get_boolean()"
-                :direction="dir"
-            />
-            <ProjectDisplay
-                class="project"
-                description="This very website you're now watching. I wanted something fast and with good SEO for my portfolio, so a static website generator like Gatsby seemed like the best fit. It reads data from markdown files, so it's super easy for me to keep adding Portfolio items as I keep developing stuff. It also has a cool dark mode switch since I couldn't decide between a dark or light design."
-                url="https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png"
+                description="This very website
+            you're now watching. I wanted something fast and with good SEO for
+            my portfolio, so a static website generator like Gatsby seemed like
+            the best fit. It reads data from markdown files, so it's super easy
+            for me to keep adding Portfolio items as I keep developing stuff. It
+            also has a cool dark mode switch since I couldn't decide between a
+            dark or light design."
+                v-bind:url="[
+                    'https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png',
+                    'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s75-c-fbw=1/photo.jpg',
+                ]"
                 :reverse="get_boolean()"
                 :direction="dir"
             />
