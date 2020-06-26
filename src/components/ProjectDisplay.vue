@@ -18,36 +18,18 @@ export default {
         console.log("The props are also available in JS:", this.url);
         let dir = this.direction;
         console.log("The props are also available in JS:", dir);
-
+        console.log(this.url);
         if (dir == "row") {
             if (this.reverse == "true") {
                 console.log("Reverse the css order");
                 this.$refs.container.className = "row-reverse horizantal";
-
-                /*
-                this.$refs.container.style["flex-flow"] = dir + "-reverse";
-                this.$refs.container.style["-webkit-flex-flow"] =
-                    dir + "-reverse";
-
-                */
             } else if (this.reverse == "false") {
                 console.log("Make the css order normal left to right");
 
                 this.$refs.container.className = "row horizantal";
-
-                /*
-                this.$refs.container.style["flex-flow"] = dir;
-                this.$refs.container.style["-webkit-flex-flow"] = dir;
-
-                */
             }
         } else if (dir == "column") {
             this.$refs.container.className = "column";
-
-            /*
-            this.$refs.container.style["flex-flow"] = dir;
-            this.$refs.container.style["-webkit-flex-flow"] = dir;
-            */
         }
 
         this.curr_url = this.url[this.index];
@@ -60,18 +42,24 @@ export default {
     },
     methods: {
         nextimg: function() {
-            console.log("Next Image");
             this.index += 1;
             if (this.index >= this.url.length) {
                 this.index = 0;
             }
+            //console.log(this.url[this.index]);
         },
         previmg: function() {
-            console.log("Previous Image");
             this.index -= 1;
             if (this.index < 0) {
                 this.index = this.url.length - 1;
             }
+
+            //console.log(this.url[this.index]);
+        },
+
+        get_url: function() {
+            var images = require.context("../assets/", false, /\.png$/);
+            return images("./" + this.url[this.index]);
         },
     },
 };

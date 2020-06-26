@@ -12,7 +12,7 @@
             also has a cool dark mode switch since I couldn't decide between a
             dark or light design."
                 v-bind:url="[
-                    'https://fidalgo.dev/static/78f5933f6d5092c41d639e098d11e96c/3287c/fidalgo.png',
+                    '/img/logo.png',
                     'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s75-c-fbw=1/photo.jpg',
                 ]"
                 :reverse="get_boolean()"
