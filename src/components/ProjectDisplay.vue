@@ -2,9 +2,11 @@
     <div>
         <div id="container" ref="container">
             <h4 id="text">{{ description }}</h4>
-            <button @click="previmg">Previous img</button>
-            <img :src="url[index]" />
-            <button @click="nextimg">Next img</button>
+            <div id="display">
+                <button id="previous" @click="previmg"><</button>
+                <img :src="url[index]" />
+                <button id="next" @click="nextimg">></button>
+            </div>
         </div>
     </div>
 </template>
@@ -67,6 +69,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#display {
+    position: relative;
+}
+
+#previous {
+    position: absolute;
+    left: 10%;
+
+    top: 50%;
+}
+
+#next {
+    position: absolute;
+    left: 90%;
+
+    top: 50%;
+}
 #container {
     /* Setup Flexbox */
     display: -webkit-box;
@@ -84,6 +103,7 @@ export default {
 
     margin-bottom: 5px;
 }
+
 h3 {
 }
 .horizantal {
@@ -95,6 +115,7 @@ h3 {
 .horizantal img {
     width: 400px;
     height: 250px;
+    margin-top: 4px;
 }
 .horizantal #text {
     width: 300px;

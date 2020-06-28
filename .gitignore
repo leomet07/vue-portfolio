@@ -22,3 +22,7 @@ yarn-error.log*
 
 .firebase/
 .firebase.json
+
+*.log
+
+.gitignore
