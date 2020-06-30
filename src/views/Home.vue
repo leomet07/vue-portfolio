@@ -18,6 +18,8 @@
                 :reverse="get_boolean()"
                 :direction="dir"
             />
+
+            <h1>Inspired by fireship</h1>
         </div>
     </div>
 </template>
