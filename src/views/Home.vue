@@ -19,7 +19,7 @@
                 :direction="dir"
             />
 
-            <h1>Inspired by Fireship and co.</h1>
+            <h1>Inspired by Fireship</h1>
         </div>
     </div>
 </template>

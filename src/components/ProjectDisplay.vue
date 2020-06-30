@@ -75,14 +75,14 @@ export default {
 
 #previous {
     position: absolute;
-    left: 10%;
+    left: 7%;
 
     top: 50%;
 }
 
 #next {
     position: absolute;
-    left: 90%;
+    left: 85%;
 
     top: 50%;
 }
@@ -113,7 +113,7 @@ h3 {
 }
 
 .horizantal img {
-    width: 400px;
+    /*width: 400px;*/
     height: 250px;
     margin-top: 4px;
 }
