@@ -58,11 +58,6 @@ export default {
 
 			//console.log(this.url[this.index]);
 		},
-
-		get_url: function () {
-			var images = require.context("../assets/", false, /\.png$/);
-			return images("./" + this.url[this.index]);
-		},
 	},
 };
 </script>
