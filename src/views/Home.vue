@@ -4,16 +4,11 @@
 		<div id="projects" ref="projects" :key="dir">
 			<ProjectDisplay
 				class="project"
-				description="This very website
-            you're now watching. I wanted something fast and with good SEO for
-            my portfolio, so a static website generator like Gatsby seemed like
-            the best fit. It reads data from markdown files, so it's super easy
-            for me to keep adding Portfolio items as I keep developing stuff. It
-            also has a cool dark mode switch since I couldn't decide between a
-            dark or light design."
+				description="Momenta was born from my winning project at STUYhacks 2020 (Stuyvesant hackathon). It was my first introduction into the borwser's location api's. Momenta then evolved to be a full fledged social media system, with friending, mmultiple pages, and a premium feature. The payment system that currently implemented was my introduction to stripe and it's apis."
 				v-bind:url="[
-                    '/img/logo.png',
-                    'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s75-c-fbw=1/photo.jpg',
+                    '/img/momenta/homepage.png',
+                    '/img/momenta/contact.png',
+                    
                 ]"
 				:reverse="get_boolean()"
 				:direction="dir"

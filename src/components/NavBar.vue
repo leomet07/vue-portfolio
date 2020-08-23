@@ -78,7 +78,7 @@
             </li>
 
             <li class="nav-item" id="themeButton">
-                <img id="long_logo" src="@/assets/long_logo.png" />
+                <img id="long_logo" src="../../public/img/long_logo.png" />
             </li>
         </ul>
     </div>
