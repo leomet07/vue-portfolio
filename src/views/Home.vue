@@ -1,27 +1,27 @@
 <template>
-    <div id="home">
-        <h1>Homepage</h1>
-        <div id="projects" ref="projects" :key="dir">
-            <ProjectDisplay
-                class="project"
-                description="This very website
+	<div id="home">
+		<h1>Homepage</h1>
+		<div id="projects" ref="projects" :key="dir">
+			<ProjectDisplay
+				class="project"
+				description="This very website
             you're now watching. I wanted something fast and with good SEO for
             my portfolio, so a static website generator like Gatsby seemed like
             the best fit. It reads data from markdown files, so it's super easy
             for me to keep adding Portfolio items as I keep developing stuff. It
             also has a cool dark mode switch since I couldn't decide between a
             dark or light design."
-                v-bind:url="[
+				v-bind:url="[
                     '/img/logo.png',
                     'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s75-c-fbw=1/photo.jpg',
                 ]"
-                :reverse="get_boolean()"
-                :direction="dir"
-            />
+				:reverse="get_boolean()"
+				:direction="dir"
+			/>
 
-            <h1>Inspired by Fireship</h1>
-        </div>
-    </div>
+			<h3>Inspired by Fireship</h3>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -32,52 +32,49 @@ import ProjectDisplay from "@/components/ProjectDisplay.vue";
 let bool = true;
 
 export default {
-    name: "Home",
-    components: { NavBar, ProjectDisplay },
+	name: "Home",
+	components: { NavBar, ProjectDisplay },
 
-    data: function() {
-        return {
-            test: "true",
-            dir: "row",
-            get_boolean() {
-                bool = !bool;
-                return String(bool);
-            },
-        };
-    },
-    mounted() {
-        window.onload = () => {
-            this.dir = window.innerWidth > 900 ? "row" : "column";
-            console.log(this.dir);
-        };
-        window.onresize = () => {
-            this.dir = window.innerWidth > 900 ? "row" : "column";
-            console.log(this.dir);
-        };
-    },
+	data: function () {
+		return {
+			dir: "row",
+			get_boolean() {
+				bool = !bool;
+				return String(bool);
+			},
+		};
+	},
+	mounted() {
+		window.onload = () => {
+			this.dir = window.innerWidth > 900 ? "row" : "column";
+		};
+		window.onresize = () => {
+			this.dir = window.innerWidth > 900 ? "row" : "column";
+		};
+	},
 };
 </script>
 
 <style scoped>
 body {
-    color: black;
+	color: black;
 }
 h1 {
-    text-align: center;
+	text-align: center;
 }
 #projects {
-    text-align: center;
+	text-align: center;
 }
 
 .project {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 @media only screen and (max-width: 1200px) {
-    .project {
-        width: 90%;
-    }
+	.project {
+		width: 90%;
+	}
 }
 </style>
