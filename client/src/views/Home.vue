@@ -3,13 +3,11 @@
 		<h1>Homepage</h1>
 		<div id="projects" ref="projects" :key="dir">
 			<ProjectDisplay
+				v-for="project in projects"
+				v-bind:key="project._id"
 				class="project"
-				description="Momenta was born from my winning project at STUYhacks 2020 (Stuyvesant hackathon). It was my first introduction into the borwser's location api's. Momenta then evolved to be a full fledged social media system, with friending, mmultiple pages, and a premium feature. The payment system that currently implemented was my introduction to stripe and it's apis."
-				v-bind:url="[
-                    '/img/momenta/homepage.png',
-                    '/img/momenta/contact.png',
-                    
-                ]"
+				:description="project.description"
+				:url="project.images"
 				:reverse="get_boolean()"
 				:direction="dir"
 			/>
@@ -37,7 +35,14 @@ export default {
 				bool = !bool;
 				return String(bool);
 			},
+			projects: [],
 		};
+	},
+	async created() {
+		const req = await fetch(window.BASE_URL + "/api/get_projects");
+		const json = await req.json();
+		console.log(json);
+		this.projects = json;
 	},
 	mounted() {
 		window.onload = () => {
