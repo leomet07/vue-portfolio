@@ -3,9 +3,9 @@
 		<div id="container" ref="container">
 			<h4 id="text">{{ description }}</h4>
 			<div id="display">
-				<button id="previous" @click="previmg">&lt;</button>
+				<button v-if="url.length > 1" id="previous" @click="previmg">&lt;</button>
 				<img :src="url[index]" />
-				<button id="next" @click="nextimg">&gt;</button>
+				<button v-if="url.length > 1" id="next" @click="nextimg">&gt;</button>
 			</div>
 		</div>
 	</div>
