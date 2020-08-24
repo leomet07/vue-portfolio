@@ -1,6 +1,6 @@
 <template>
 	<div id="home">
-		<h1>Homepage</h1>
+		<h1>My projects</h1>
 		<div id="projects" ref="projects" :key="dir">
 			<ProjectDisplay
 				v-for="project in projects"
