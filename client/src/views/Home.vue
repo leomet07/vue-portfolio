@@ -2,15 +2,16 @@
 	<div id="home">
 		<h1>My projects</h1>
 		<div id="projects" ref="projects" :key="dir">
-			<ProjectDisplay
-				v-for="project in projects"
-				v-bind:key="project._id"
-				class="project"
-				:description="project.description"
-				:url="project.images"
-				:reverse="get_boolean()"
-				:direction="dir"
-			/>
+			<div v-for="project in projects" v-bind:key="project._id">
+				<ProjectDisplay
+					:description="project.description"
+					:url="project.images"
+					:reverse="get_boolean()"
+					:direction="dir"
+					class="project"
+				/>
+				<hr />
+			</div>
 
 			<h3>Inspired by Fireship</h3>
 		</div>
@@ -70,8 +71,12 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 50%;
+	margin-bottom: 7%;
+	margin-top: 7%;
 }
-
+hr {
+	width: 70%;
+}
 @media only screen and (max-width: 1200px) {
 	.project {
 		width: 90%;

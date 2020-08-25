@@ -77,7 +77,7 @@ export default {
 
 #next {
 	position: absolute;
-	left: 85%;
+	left: 78%;
 
 	top: 50%;
 }
