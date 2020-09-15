@@ -3,9 +3,12 @@
 		<div id="container" ref="container">
 			<h4 id="text">{{ description }}</h4>
 			<div id="display">
-				<button v-if="url.length > 1" id="previous" @click="previmg">&lt;</button>
-				<img :src="url[index]" />
-				<button v-if="url.length > 1" id="next" @click="nextimg">&gt;</button>
+				<div id="img_display">
+					<button v-if="images.length > 1" id="previous" @click="previmg">&lt;</button>
+					<img :src="images[index]" />
+					<button v-if="images.length > 1" id="next" @click="nextimg">&gt;</button>
+				</div>
+				<a id="visit" :href="url" v-if="url" target="_blank">Visit</a>
 			</div>
 		</div>
 	</div>
@@ -14,13 +17,13 @@
 <script>
 export default {
 	name: "NavBar",
-	props: ["reverse", "url", "description", "direction"],
+	props: ["reverse", "url", "images", "description", "direction"],
 	mounted() {
 		// eslint-disable-next-line no-console
-		console.log("The props are also available in JS:", this.url);
+		console.log("The props are also available in JS:", this.images);
 		let dir = this.direction;
 		console.log("The props are also available in JS:", dir);
-		console.log(this.url);
+		console.log(this.images);
 		if (dir == "row") {
 			if (this.reverse == "true") {
 				console.log("Reverse the css order");
@@ -34,7 +37,7 @@ export default {
 			this.$refs.container.className = "column";
 		}
 
-		this.curr_url = this.url[this.index];
+		this.curr_url = this.images[this.index];
 	},
 	data: function () {
 		return {
@@ -45,7 +48,7 @@ export default {
 	methods: {
 		nextimg: function () {
 			this.index += 1;
-			if (this.index >= this.url.length) {
+			if (this.index >= this.images.length) {
 				this.index = 0;
 			}
 			//console.log(this.url[this.index]);
@@ -53,7 +56,7 @@ export default {
 		previmg: function () {
 			this.index -= 1;
 			if (this.index < 0) {
-				this.index = this.url.length - 1;
+				this.index = this.images.length - 1;
 			}
 
 			//console.log(this.url[this.index]);
@@ -64,8 +67,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#display {
+#img_display {
 	position: relative;
+	margin-bottom: 15px;
 }
 
 #previous {
@@ -96,7 +100,9 @@ export default {
 
 	margin-bottom: 5px;
 }
-
+img {
+	border: 1px solid rgb(219, 219, 219);
+}
 .horizantal {
 	width: 100%;
 	justify-content: space-around;
@@ -130,11 +136,24 @@ export default {
 
 .column img {
 	width: 100%;
+
+	max-height: 350px;
 }
 
 button {
 	margin-top: auto;
 	margin-bottom: auto;
 	height: 20px;
+}
+
+#visit {
+	padding: 7px 10px 7px 10px;
+	width: 80px;
+	height: 40px;
+	border: 1px solid black;
+	color: black;
+	text-decoration: none;
+	margin-top: 50px;
+	font-size: 15px;
 }
 </style>

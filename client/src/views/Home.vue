@@ -5,9 +5,10 @@
 			<div v-for="project in projects" v-bind:key="project._id">
 				<ProjectDisplay
 					:description="project.description"
-					:url="project.images"
+					:images="project.images"
 					:reverse="get_boolean()"
 					:direction="dir"
+					:url="project.url"
 					class="project"
 				/>
 				<hr />

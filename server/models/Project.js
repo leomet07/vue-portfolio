@@ -16,6 +16,12 @@ const projectSchema = new mongoose.Schema({
 	images: {
 		type: Array,
 		required: true
+	},
+	url: {
+		type: String,
+		required: true,
+		min: 4,
+		max: 500
 	}
 });
 
