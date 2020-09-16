@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div id="container" ref="container">
-			<h4 id="text">{{ description }}</h4>
+			<!-- v-html allow unsafe render of html -->
+			<h4 v-html="description" id="text"></h4>
 			<div id="display">
 				<div id="img_display">
 					<button v-if="images.length > 1" id="previous" @click="previmg">&lt;</button>

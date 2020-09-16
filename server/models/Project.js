@@ -22,6 +22,10 @@ const projectSchema = new mongoose.Schema({
 		required: true,
 		min: 4,
 		max: 500
+	},
+	index: {
+		type: Number,
+		required: true
 	}
 });
 

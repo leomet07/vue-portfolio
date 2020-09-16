@@ -13,6 +13,10 @@ router.get("/get_projects", async (req, res) => {
 
 	const projects = await Project.find({}).skip(skip).limit(10);
 
+
+	projects.sort((a, b) => {
+		return a.index - b.index;
+	});
 	res.json(projects)
 })
 
