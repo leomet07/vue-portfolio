@@ -2,16 +2,22 @@
 	<div id="home">
 		<h1>My projects</h1>
 		<div id="projects" ref="projects" :key="dir">
-			<div v-for="project in projects" v-bind:key="project._id">
-				<ProjectDisplay
-					:description="project.description"
-					:images="project.images"
-					:reverse="get_boolean()"
-					:direction="dir"
-					:url="project.url"
-					class="project"
-				/>
-				<hr />
+			<div v-if="projects.length > 0">
+				<div v-for="project in projects" v-bind:key="project._id">
+					<ProjectDisplay
+						:description="project.description"
+						:images="project.images"
+						:reverse="get_boolean()"
+						:direction="dir"
+						:url="project.url"
+						class="project"
+					/>
+					<hr />
+				</div>
+			</div>
+
+			<div v-else>
+				<h3>If my projects don't load soon, reload the page.</h3>
 			</div>
 
 			<h3>Inspired by Fireship</h3>
