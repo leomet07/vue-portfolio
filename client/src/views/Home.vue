@@ -9,7 +9,8 @@
 						:images="project.images"
 						:reverse="get_boolean()"
 						:direction="dir"
-						:url="project.url"
+						:web_url="project.web_url"
+						:gh_url="project.gh_url"
 						class="project"
 					/>
 					<hr />

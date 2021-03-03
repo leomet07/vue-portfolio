@@ -15,18 +15,23 @@ const projectSchema = new mongoose.Schema({
 	},
 	images: {
 		type: Array,
-		required: true
-	},
-	url: {
-		type: String,
 		required: true,
+	},
+	gh_url: {
+		type: String,
+
 		min: 4,
-		max: 500
+		max: 500,
+	},
+	web_url: {
+		type: String,
+
+		min: 4,
+		max: 500,
 	},
 	index: {
 		type: Number,
-		required: true
-	}
+	},
 });
 
 const projectModel = mongoose.model("Project", projectSchema);

@@ -17,7 +17,12 @@
 						&gt;
 					</button>
 				</div>
-				<a id="visit" :href="url" v-if="url" target="_blank">Visit</a>
+				<a class="link" :href="web_url" v-if="web_url" target="_blank"
+					>Visit</a
+				>
+				<a class="link" :href="gh_url" v-if="gh_url" target="_blank"
+					>Source Code</a
+				>
 			</div>
 		</div>
 	</div>
@@ -26,7 +31,14 @@
 <script>
 export default {
 	name: "NavBar",
-	props: ["reverse", "url", "images", "description", "direction"],
+	props: [
+		"reverse",
+		"web_url",
+		"gh_url",
+		"images",
+		"description",
+		"direction",
+	],
 	mounted() {
 		// eslint-disable-next-line no-console
 		console.log("The props are also available in JS:", this.images);
@@ -158,7 +170,7 @@ button {
 	height: 20px;
 }
 
-#visit {
+.link {
 	padding: 7px 10px 7px 10px;
 	width: 80px;
 	height: 40px;
@@ -167,5 +179,6 @@ button {
 	text-decoration: none;
 	margin-top: 50px;
 	font-size: 15px;
+	margin: 2px;
 }
 </style>
