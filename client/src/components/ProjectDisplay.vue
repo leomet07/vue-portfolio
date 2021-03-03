@@ -5,9 +5,17 @@
 			<h4 v-html="description" id="text"></h4>
 			<div id="display">
 				<div id="img_display">
-					<button v-if="images.length > 1" id="previous" @click="previmg">&lt;</button>
+					<button
+						v-if="images.length > 1"
+						id="previous"
+						@click="previmg"
+					>
+						&lt;
+					</button>
 					<img :src="images[index]" />
-					<button v-if="images.length > 1" id="next" @click="nextimg">&gt;</button>
+					<button v-if="images.length > 1" id="next" @click="nextimg">
+						&gt;
+					</button>
 				</div>
 				<a id="visit" :href="url" v-if="url" target="_blank">Visit</a>
 			</div>
@@ -40,21 +48,21 @@ export default {
 
 		this.curr_url = this.images[this.index];
 	},
-	data: function () {
+	data: function() {
 		return {
 			curr_url: "",
 			index: 0,
 		};
 	},
 	methods: {
-		nextimg: function () {
+		nextimg: function() {
 			this.index += 1;
 			if (this.index >= this.images.length) {
 				this.index = 0;
 			}
 			//console.log(this.url[this.index]);
 		},
-		previmg: function () {
+		previmg: function() {
 			this.index -= 1;
 			if (this.index < 0) {
 				this.index = this.images.length - 1;
@@ -111,7 +119,10 @@ img {
 
 .horizantal img {
 	/*width: 400px;*/
-	height: 250px;
+	/* height: 50vh;
+	 */
+	width: 40vw;
+
 	margin-top: 4px;
 }
 .horizantal #text {

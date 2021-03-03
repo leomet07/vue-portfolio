@@ -36,7 +36,7 @@ export default {
 	name: "Home",
 	components: { NavBar, ProjectDisplay },
 
-	data: function () {
+	data: function() {
 		return {
 			dir: "row",
 			get_boolean() {
@@ -77,7 +77,7 @@ h1 {
 .project {
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
+	width: 75%;
 	margin-bottom: 7%;
 	margin-top: 7%;
 }
