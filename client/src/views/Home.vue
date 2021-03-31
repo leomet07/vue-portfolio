@@ -1,6 +1,6 @@
 <template>
 	<div id="home">
-		<h1>My projects</h1>
+		<h1>Lenny's projects</h1>
 		<div id="projects" ref="projects" :key="dir">
 			<div v-if="projects.length > 0">
 				<div v-for="project in projects" v-bind:key="project._id">
@@ -48,6 +48,7 @@ export default {
 		};
 	},
 	async created() {
+		document.title = "Lenny's Portfolio";
 		const req = await fetch(window.BASE_URL + "/api/get_projects");
 		const json = await req.json();
 		console.log(json);
