@@ -41,16 +41,8 @@
 				</a>
 			</li>
 
-			<!-- <li class="nav-item">
-                <a
-                    href="https://twitter.com/@leomet07"
-                    target="_blank"
-                    class="nav-link"
-                >
-                    <img id="twitter" src="../../public/img/twitter.png" />
-                    <span class="link-text">My Twitter</span>
-                </a>
-            </li>
+			
+			<!-- 
 
             <li class="nav-item">
                 <a
@@ -76,6 +68,16 @@
 					<span class="link-text">My Github</span>
 				</a>
 			</li>
+			<li class="nav-item">
+                <a
+                    href="https://buymeacoffee.com/leomet07"
+                    target="_blank"
+                    class="nav-link"
+                >
+                    <img id="buymeacoffeelogo" src="../../public/img/buymeacoffeelogo.png" />
+                    <span class="link-text">My BuyMeACoffee</span>
+                </a>
+            </li>
 
 			<li class="nav-item" id="themeButton">
 				<img id="long_logo" src="../../public/img/long_logo.png" />
@@ -135,7 +137,7 @@ export default {
 }
 
 .nav-link:hover {
-	filter: grayscale(0%) opacity(1);
+	/* filter: grayscale(0%) opacity(1); */
 	background: var(--bg-secondary);
 	color: var(--text-secondary);
 }
@@ -208,6 +210,9 @@ export default {
 #insta {
 	filter: invert(100%);
 }
+#buymeacoffeelogo{
+	filter: invert(100%);
+}
 /* Small screens */
 @media only screen and (max-width: 600px) {
 	.navbar {
@@ -262,4 +267,5 @@ export default {
 		left: 0px;
 	}
 }
+
 </style>
