@@ -133,7 +133,8 @@ img {
 	/*width: 400px;*/
 	/* height: 50vh;
 	 */
-	width: 40vw;
+	max-width: 40vw;
+	max-height: 30vw;
 
 	margin-top: 4px;
 }
